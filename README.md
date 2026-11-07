@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CIVILAI
 
 CIVILAI is a Flask-based intelligent urban problem management system for demonstrating a complete civic grievance workflow. The receiving desk in this project is a **simulated authority system for demonstration purposes**, not a real government service.
@@ -50,3 +51,7 @@ For durable attachments, configure the storage service boundary in `civilai/serv
 6. Sign out and sign in as the authority desk; move the authority status through review/in progress/resolved.
 7. Return to the citizen account and confirm the updated status.
 8. Repeat a submission or use retry to confirm idempotent authority handling.
+=======
+# CIVILAI PROJECT
+HELPS THE CITIZEN 
+>>>>>>> 8a60e0be8905c451a60f0037b1b8159523980554
