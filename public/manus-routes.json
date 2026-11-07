@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {"path": "/", "title": "CIVILAI sign in"},
+    {"path": "/login", "title": "Sign in"},
+    {"path": "/admin/login", "title": "Admin sign in"},
+    {"path": "/admin/forgot-password", "title": "Recover admin access"},
+    {"path": "/admin/verify-security", "title": "Verify admin security word"},
+    {"path": "/register", "title": "Create account"},
+    {"path": "/dashboard", "title": "Citizen desk"},
+    {"path": "/complaints", "title": "My complaints"},
+    {"path": "/complaints/new", "title": "Register a complaint"},
+    {"path": "/complaints/:public_id", "title": "Complaint detail"},
+    {"path": "/complaints/:public_id/receipt", "title": "Complaint receipt"},
+    {"path": "/admin", "title": "CIVILAI admin"},
+    {"path": "/admin/account/password", "title": "Change admin password"},
+    {"path": "/authority", "title": "Authority desk"}
+  ]
+}

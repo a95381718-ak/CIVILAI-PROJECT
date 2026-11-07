@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Sign in{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block public_content %}
+<div class="auth-layout">
+  <section class="auth-visual">
+    <div class="auth-visual-inner">
+      <a class="brand-lockup light-brand" href="{{ url_for('main.index') }}"><span class="brand-mark"><i></i><b></b><em></em></span><span class="brand-name">civilai</span></a>
+      <div class="visual-copy"><div class="eyebrow light-eyebrow">A civic case desk</div><h1>Make the problem visible.<br><span>Make the next step clear.</span></h1><p>CIVILAI turns neighborhood friction into a trackable case, with a clear handoff between citizens, the civic desk, and a simulated receiving authority.</p></div>
+      <div class="visual-ticker"><span class="signal-dot"></span><span>Signals from 28 localities</span><strong>→</strong><span>One accountable trail</span></div>
+      <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div><div class="visual-grid"></div>
+    </div>
+  </section>
+  <section class="auth-panel">
+    <div class="auth-panel-inner">
+      <div class="auth-kicker">Citizen access / 01</div>
+      <h2>Enter your civic desk.</h2>
+      <p class="auth-intro">Sign in to register a complaint, follow its status, and keep the authority acknowledgement in one place.</p>
+      <form method="post" action="{{ url_for('auth.login') }}" class="auth-form">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <label class="field-label" for="email">Email address</label>
+        <input class="form-control field-control" id="email" name="email" type="email" autocomplete="email" value="{{ request.form.get('email', '') }}" placeholder="you@example.com" required>
+        <div class="field-row"><label class="field-label" for="password">Password</label><a href="#demo-access" class="quiet-link">Need a way in?</a></div>
+        <div class="password-wrap"><input class="form-control field-control" id="password" name="password" type="password" autocomplete="current-password" placeholder="Your secure password" required><button type="button" class="password-toggle" data-toggle-password="password" aria-label="Show password"><i class="bi bi-eye"></i></button></div>
+        <button class="btn btn-signal w-100" type="submit">Open my desk <i class="bi bi-arrow-up-right"></i></button>
+      </form>
+      <div class="auth-divider"><span>or</span></div>
+      <a class="btn btn-ghost w-100" href="{{ url_for('auth.register') }}">Create a citizen account <i class="bi bi-arrow-right"></i></a>
+      <div id="demo-access" class="demo-access"><div><span class="eyebrow">Demo access</span><p>Explore the complete flow with a pre-seeded citizen account.</p></div><form method="post" action="{{ url_for('auth.login') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="email" value="citizen@civilai.local"><input type="hidden" name="password" value="Citizen123!"><button class="btn btn-small-outline" type="submit">Use demo <i class="bi bi-arrow-right"></i></button></form></div>
+      <p class="auth-footnote"><i class="bi bi-shield-check"></i> Your records are scoped to your account. Authority receiver is simulated for demonstration.</p>
+      <a class="admin-access-link" href="{{ url_for('auth.admin_login') }}"><i class="bi bi-command"></i> Administrator? Open the control room <i class="bi bi-arrow-up-right"></i></a>
+    </div>
+  </section>
+</div>
+{% endblock %}

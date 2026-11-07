@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Admin sign in{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block public_content %}
+<div class="auth-layout auth-layout-reverse">
+  <section class="auth-visual auth-visual-quiet">
+    <div class="auth-visual-inner">
+      <a class="brand-lockup light-brand" href="{{ url_for('main.index') }}"><span class="brand-mark"><i></i><b></b><em></em></span><span class="brand-name">civilai</span></a>
+      <div class="visual-copy"><div class="eyebrow light-eyebrow">Control room / admin</div><h1>See the signal.<br><span>Move the system.</span></h1><p>Review incoming cases, inspect submission health, configure civic categories, and keep the handoff accountable from one protected desk.</p></div>
+      <div class="visual-ticker"><span class="signal-dot"></span><span>Privileged access</span><strong>→</strong><span>Every change leaves a trail</span></div>
+      <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div><div class="visual-grid"></div>
+    </div>
+  </section>
+  <section class="auth-panel">
+    <div class="auth-panel-inner">
+      <div class="auth-kicker">Administrator access / 01</div>
+      <h2>Open the control room.</h2>
+      <p class="auth-intro">This entrance is restricted to CIVILAI administrators. Citizen accounts cannot use this desk.</p>
+      <form method="post" action="{{ url_for('auth.admin_login') }}" class="auth-form">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <label class="field-label" for="email">Administrator email</label>
+        <input class="form-control field-control" id="email" name="email" type="email" autocomplete="username" value="{{ request.form.get('email', '') }}" placeholder="a95381718@gmail.com" required>
+        <div class="field-row"><label class="field-label" for="password">Password</label><a href="{{ url_for('auth.admin_forgot_password') }}" class="quiet-link">Forgot password?</a></div>
+        <div class="password-wrap"><input class="form-control field-control" id="password" name="password" type="password" autocomplete="current-password" placeholder="Your admin password" required><button type="button" class="password-toggle" data-toggle-password="password" aria-label="Show password"><i class="bi bi-eye"></i></button></div>
+        <button class="btn btn-signal w-100" type="submit">Enter control room <i class="bi bi-arrow-up-right"></i></button>
+      </form>
+      <div class="demo-access admin-demo-access"><div><span class="eyebrow">Demo administrator</span><p>Use the seeded control-room account to inspect the full workflow.</p></div><form method="post" action="{{ url_for('auth.admin_login') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="email" value="a95381718@gmail.com"><input type="hidden" name="password" value="anand@9762"><button class="btn btn-small-outline" type="submit">Use demo <i class="bi bi-arrow-right"></i></button></form></div>
+      <p class="auth-footnote"><i class="bi bi-shield-lock"></i> Admin actions are role-checked and recorded. The receiving authority remains simulated for demonstration.</p>
+    </div>
+  </section>
+</div>
+{% endblock %}
